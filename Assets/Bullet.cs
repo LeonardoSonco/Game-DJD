@@ -16,7 +16,6 @@ public class Bullet : MonoBehaviour
     {
         transform.Translate(Vector2.up * 10 * Time.deltaTime);
         StartCoroutine(destroyBullet());
-
     }
 
     IEnumerator destroyBullet()
@@ -24,4 +23,13 @@ public class Bullet : MonoBehaviour
         yield return new WaitForSeconds(0.8f);
         Destroy(gameObject);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("wall"))
+        {
+            Debug.Log("Acertou wall!");
+            Destroy(gameObject);
+        }
+    }
+
 }
