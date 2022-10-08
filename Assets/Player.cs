@@ -11,10 +11,12 @@ public class Player : MonoBehaviour
     private Vector2 direction;
     private Vector2 direcao;
     private float speed;
+    private Animator animator;
 
     void Start()
     {
-        speed = 5;
+        animator = GetComponent<Animator>();
+        speed = 3;
         direcao = Vector2.zero;
 
     }
@@ -33,6 +35,10 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
             direcao += Vector2.up;
+            animator.SetBool("taCorrendo",true);
+        }
+        else{
+            animator.SetBool("taCorrendo",false);
         }
         // if (Input.GetKey(KeyCode.DownArrow))
         // {
