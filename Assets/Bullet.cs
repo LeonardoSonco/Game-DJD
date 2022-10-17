@@ -29,6 +29,7 @@ public class Bullet : MonoBehaviour
         {
             Debug.Log("Acertou wall!");
             Destroy(gameObject);
+            
         }
     }
 
